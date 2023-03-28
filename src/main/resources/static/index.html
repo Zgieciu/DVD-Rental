@@ -5,9 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wypożyczelnia DVD</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <div class="rental">
+        <h1 class="rental__banner">Wypożyczelnia DVD</h1>
+        <nav class="rental__nav nav">
+            <button class="nav__btn btn__rent btn">Wypożycz DVD</button>
+            <button class="nav__btn btn__return btn">Oddaj DVD</button>
+            <button class="nav__btn btn__add btn">Dodaj do zbioru</button>
+        </nav>
+        <main class="rental__main main">
+            <section class="main__rent"></section>
+            <section class="main__return"></section>
+            <section class="main__add"></section>
+        </main>
+    </div>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

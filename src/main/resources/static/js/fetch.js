@@ -5,7 +5,7 @@ export const movieFetch = () => {
             data.forEach(element => {
                 const div = document.createElement('div');
                 div.textContent = element.title;
-                document.querySelector('body').appendChild(div);
+                document.querySelector('.main__rent').appendChild(div);
             });
         })
 }
