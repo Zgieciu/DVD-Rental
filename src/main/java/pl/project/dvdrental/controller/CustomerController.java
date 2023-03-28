@@ -16,12 +16,12 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @GetMapping("/customers")
-    public List<Customer> getMovie() {
+    public List<Customer> getCustomers() {
         return customerService.getCustomers();
     }
 
     @GetMapping("/customer/{id}")
-    public Customer getSingleMovie(@PathVariable Long id) {
+    public Customer getCustomer(@PathVariable Long id) {
         return customerService.getCustomer(id);
     }
 }
