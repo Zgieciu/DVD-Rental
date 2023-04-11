@@ -20,4 +20,12 @@ public class MovieService {
         return movieRepository.findById(id)
                 .orElseThrow();
     }
+
+    public List<Movie> getMoviesByCategory(String category) {
+        return movieRepository.getMoviesByCategory(category);
+    }
+
+    public List<Movie> getMoviesByRating(Float rating) {
+        return movieRepository.getMoviesByRating(rating);
+    }
 }

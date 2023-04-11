@@ -23,4 +23,14 @@ public class MovieController {
     public Movie getMovie(@PathVariable Long id) {
         return movieService.getMovie(id);
     }
+
+    @GetMapping("/movies/category/{category}")
+    public List<Movie> getMoviesByCategory(@PathVariable String category) {
+        return movieService.getMoviesByCategory(category);
+    }
+
+    @GetMapping("/movies/rating/{rating}")
+    public List<Movie> getMoviesByRating(@PathVariable Float rating) {
+        return movieService.getMoviesByRating(rating);
+    }
 }

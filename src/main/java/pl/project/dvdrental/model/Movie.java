@@ -1,7 +1,6 @@
 package pl.project.dvdrental.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Movie {
@@ -11,7 +10,7 @@ public class Movie {
     private String category;
     private int publicationDate;
     private String director;
-    private Float raiting;
+    private Float rating;
     private String description;
     private boolean availability;
 
@@ -55,12 +54,12 @@ public class Movie {
         this.director = director;
     }
 
-    public Float getRaiting() {
-        return raiting;
+    public Float getRating() {
+        return rating;
     }
 
-    public void setRaiting(Float raiting) {
-        this.raiting = raiting;
+    public void setRating(Float rating) {
+        this.rating = rating;
     }
 
     public String getDescription() {
