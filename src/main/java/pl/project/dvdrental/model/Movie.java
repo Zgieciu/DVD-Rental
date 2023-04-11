@@ -2,7 +2,10 @@ package pl.project.dvdrental.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
+@Table(name = "movie")
 public class Movie {
     @Id
     private Long id;

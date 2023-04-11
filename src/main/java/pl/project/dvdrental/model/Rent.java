@@ -5,17 +5,21 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "rent")
 public class Rent {
     @Id
     private Long id;
-    private Long userId;
-    private Long movieId;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customerId;
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movieId;
     private LocalDate rentDate;
     private LocalDate returnDate;
     private Float rentalCosts;
     private int delay;
     private Float additionalCosts;
-
     public Long getId() {
         return id;
     }
@@ -24,19 +28,19 @@ public class Rent {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Customer getUserId() {
+        return customerId;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUserId(Customer userId) {
+        this.customerId = userId;
     }
 
-    public Long getMovieId() {
+    public Movie getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(Long movieId) {
+    public void setMovieId(Movie movieId) {
         this.movieId = movieId;
     }
 

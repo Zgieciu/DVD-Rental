@@ -24,4 +24,9 @@ public class RentController {
     public Rent getRent(@PathVariable Long id) {
         return rentServices.getRent(id);
     }
+
+    @GetMapping("/rents/relations")
+    public List<Rent> getRentsWithMovie() {
+        return rentServices.getRentsWithMovie();
+    }
 }

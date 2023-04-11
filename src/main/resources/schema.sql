@@ -20,7 +20,7 @@ CREATE TABLE CUSTOMER (
 
 CREATE TABLE RENT (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+    customer_id INT NOT NULL,
     movie_id INT NOT NULL,
     rent_date DATE NOT NULL,
     return_date DATE NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE RENT (
 );
 
 ALTER TABLE RENT
-    ADD FOREIGN KEY (user_id)
+    ADD FOREIGN KEY (customer_id)
     REFERENCES CUSTOMER(id);
 
 ALTER TABLE RENT
