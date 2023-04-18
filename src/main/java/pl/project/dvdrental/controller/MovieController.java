@@ -1,9 +1,7 @@
 package pl.project.dvdrental.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.project.dvdrental.model.Movie;
 import pl.project.dvdrental.service.MovieService;
 
@@ -32,5 +30,10 @@ public class MovieController {
     @GetMapping("/movies/rating/{rating}")
     public List<Movie> getMoviesByRating(@PathVariable Float rating) {
         return movieService.getMoviesByRating(rating);
+    }
+
+    @PostMapping("/movies")
+    public Movie addMovie(@RequestBody Movie movie) {
+        return movieService.addMovie(movie);
     }
 }

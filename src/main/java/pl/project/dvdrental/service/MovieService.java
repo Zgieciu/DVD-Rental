@@ -28,4 +28,8 @@ public class MovieService {
     public List<Movie> getMoviesByRating(Float rating) {
         return movieRepository.getMoviesByRating(rating);
     }
+
+    public Movie addMovie(Movie movie) {
+        return movieRepository.save(movie);
+    }
 }

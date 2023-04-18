@@ -1,6 +1,8 @@
 .main {
 
-    &__rent {
+    &__rent,
+    &__return,
+    &_add {
         display: none;
         font-size: 24px;
         text-align: left;

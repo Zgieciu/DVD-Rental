@@ -1,8 +1,11 @@
+import { movieFetch } from "./get.js";
+
 const rentSection = document.querySelector('.main__rent');
-const returnSection = document.querySelector('.return__rent');
-const addSection = document.querySelector('.add__rent');
+const returnSection = document.querySelector('.main__return');
+const addSection = document.querySelector('.main__add');
 
 export const showRentSection = () => {
+    movieFetch();
     rentSection.classList.add('main--visable');
     returnSection.classList.remove('main--visable');
     addSection.classList.remove('main--visable');

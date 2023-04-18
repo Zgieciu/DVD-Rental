@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Table(name = "rent")
 public class Rent {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "customer_id")
