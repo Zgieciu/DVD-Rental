@@ -1,9 +1,7 @@
 package pl.project.dvdrental.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.project.dvdrental.model.Rent;
 import pl.project.dvdrental.service.RentServices;
 
@@ -25,8 +23,18 @@ public class RentController {
         return rentServices.getRent(id);
     }
 
-    @GetMapping("/rents/relations")
-    public List<Rent> getRentsWithMovie() {
-        return rentServices.getRentsWithMovie();
+    @GetMapping("/rents/notReturned")
+    public List<Rent> getRentsNotReturned() {
+        return rentServices.getRentsNotReturned();
+    }
+
+    @PostMapping("/rents")
+    public Rent addRent(@RequestBody Rent rent) {
+        return rentServices.addRent(rent);
+    }
+
+    @PutMapping("/rents")
+    public Rent editRent(@RequestBody Rent rent) {
+        return rentServices.editRent(rent);
     }
 }

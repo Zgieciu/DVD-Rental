@@ -1,9 +1,7 @@
 package pl.project.dvdrental.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.project.dvdrental.model.Customer;
 import pl.project.dvdrental.service.CustomerService;
 
@@ -23,5 +21,10 @@ public class CustomerController {
     @GetMapping("/customer/{id}")
     public Customer getCustomer(@PathVariable Long id) {
         return customerService.getCustomer(id);
+    }
+
+    @PostMapping("customers")
+    public Customer addCustomer(@RequestBody Customer customer) {
+        return customerService.addCustomer(customer);
     }
 }

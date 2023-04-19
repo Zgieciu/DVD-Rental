@@ -1,5 +1,6 @@
 package pl.project.dvdrental.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.project.dvdrental.model.Rent;
@@ -22,7 +23,18 @@ public class RentServices {
                 .orElseThrow();
     }
 
-    public List<Rent> getRentsWithMovie() {
-        return rentRepository.getRentsWithMovie();
+    public List<Rent> getRentsNotReturned() {
+        return rentRepository.getRentsNotReturned();
+    }
+
+    public Rent addRent(Rent rent) {
+        return rentRepository.save(rent);
+    }
+
+    @Transactional
+    public Rent editRent(Rent rent) {
+        Rent rentEdited = rentRepository.findById(rent.getId()).orElseThrow();
+        rentEdited.setReturnDate(rent.getReturnDate());
+        return rentEdited;
     }
 }

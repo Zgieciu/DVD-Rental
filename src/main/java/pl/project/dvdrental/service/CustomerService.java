@@ -20,4 +20,8 @@ public class CustomerService {
         return customerRepository.findById(id)
                 .orElseThrow();
     }
+
+    public Customer addCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
 }

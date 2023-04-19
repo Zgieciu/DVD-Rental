@@ -23,7 +23,7 @@ CREATE TABLE RENT (
     customer_id INT NOT NULL,
     movie_id INT NOT NULL,
     rent_date DATE NOT NULL,
-    return_date DATE NOT NULL,
+    return_date DATE DEFAULT NULL,
     rental_costs FLOAT NOT NULL,
     delay INT DEFAULT 0,
     additional_costs FLOAT DEFAULT 0

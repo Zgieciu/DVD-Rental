@@ -15,8 +15,15 @@ VALUES
 
 INSERT INTO CUSTOMER (name, last_name, birth_date, town, phone_number)
 VALUES
-    ('Krzysztof', 'Krakowiak', '2001-01-04', 'Drzewica', '859202348');
+    ('Krzysztof', 'Krakowiak', '2001-01-04', 'Drzewica', '859202348'),
+    ('John', 'Snow', '1995-10-20', 'Warszawa', '948291859'),
+    ('Harry', 'Potter', '1999-04-13', 'Kielce', '953820695');
 
 INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rental_costs)
 VALUES
     (1, 2, '2023-03-20', '2023-03-28', 20);
+
+INSERT INTO RENT (customer_id, movie_id, rent_date, rental_costs)
+VALUES
+    (2, 4, '2023-04-19', 15),
+    (3, 1, '2023-04-10', 20);

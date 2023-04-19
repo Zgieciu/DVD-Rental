@@ -11,10 +11,10 @@ public class Rent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", updatable = false, insertable = false)
     private Customer customerId;
     @ManyToOne
-    @JoinColumn(name = "movie_id")
+    @JoinColumn(name = "movie_id",  updatable = false, insertable = false)
     private Movie movieId;
     private LocalDate rentDate;
     private LocalDate returnDate;

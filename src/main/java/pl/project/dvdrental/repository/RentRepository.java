@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface RentRepository extends JpaRepository <Rent, Long> {
-    @Query("SELECT rent FROM Rent rent" +
-            " LEFT JOIN FETCH rent.movieId movie" +
-            " LEFT JOIN FETCH rent.customerId user")
-    List<Rent> getRentsWithMovie();
+
+    @Query("SELECT rent FROM Rent rent WHERE rent.returnDate = NULL")
+    List<Rent> getRentsNotReturned();
+
 }
