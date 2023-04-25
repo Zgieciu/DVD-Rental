@@ -1,14 +1,29 @@
-import { moviePost } from "./post.js";
-import { showRentSection, showReturnSection, showAddSection } from "./buttonHanders.js";
+import { moviePost, customerPost } from "./post.js";
+import { showActualSection } from "./buttonHanders.js";
 
+// BUTTONS SELECTORS
 const btnRent = document.querySelector('.btn__rent');
 const btnReturn = document.querySelector('.btn__return');
+const btnCustomer = document.querySelector('.btn__customer');
 const btnAdd = document.querySelector('.btn__add');
 
-btnRent.addEventListener('click', showRentSection);
-btnReturn.addEventListener('click', showReturnSection);
-btnAdd.addEventListener('click', showAddSection);
+// SECTIONS SELECTORS
+const rentSection = document.querySelector('.main__rent');
+const returnSection = document.querySelector('.main__return');
+const customerSection = document.querySelector('.main__customer');
+const addSection = document.querySelector('.main__add');
+const navSections = document.querySelectorAll('.main section');
+
+// EVENT LISTENERS ON BUTTONS
+btnRent.addEventListener('click', () => showActualSection(navSections, rentSection));
+btnReturn.addEventListener('click', () => showActualSection(navSections, returnSection));
+btnCustomer.addEventListener('click', () => showActualSection(navSections, customerSection))
+btnAdd.addEventListener('click', () => showActualSection(navSections, addSection));
 
 // MOVIE POST
-const form = document.querySelector('.form');
-form.addEventListener('submit', moviePost);
+const movieForm = document.querySelector('.section_add__form');
+movieForm.addEventListener('submit', moviePost);
+
+// CUSTOMER POST
+const customerForm = document.querySelector('.section_customer__form');
+customerForm.addEventListener('submit', customerPost);

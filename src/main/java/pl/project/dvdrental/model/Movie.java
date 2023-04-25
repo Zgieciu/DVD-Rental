@@ -42,12 +42,12 @@ public class Movie {
         this.category = category;
     }
 
-    public int getPublication_date() {
+    public int getPublicationDate() {
         return publicationDate;
     }
 
-    public void setPublication_date(int publication_date) {
-        this.publicationDate = publication_date;
+    public void setPublicationDate(int publicationDate) {
+        this.publicationDate = publicationDate;
     }
 
     public String getDirector() {

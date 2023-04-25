@@ -4,8 +4,8 @@ CREATE TABLE MOVIE (
     category VARCHAR(30) NOT NULL,
     publication_date INT NOT NULL,
     director VARCHAR(30) NOT NULL,
-    rating FLOAT NOT NULL,
-    description VARCHAR(250) NOT NULL,
+    rating FLOAT,
+    description VARCHAR(500),
     availability BOOLEAN NOT NULL DEFAULT TRUE
 );
 

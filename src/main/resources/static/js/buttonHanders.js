@@ -1,24 +1,10 @@
 import { movieFetch } from "./get.js";
 
-const rentSection = document.querySelector('.main__rent');
-const returnSection = document.querySelector('.main__return');
-const addSection = document.querySelector('.main__add');
-
-export const showRentSection = () => {
+export const showActualSection = (sections, section) => {
     movieFetch();
-    rentSection.classList.add('main--visable');
-    returnSection.classList.remove('main--visable');
-    addSection.classList.remove('main--visable');
-}
+    sections.forEach(section => {
+        section.classList.remove('main__section--visable');
+    });
 
-export const showReturnSection = () => {
-    rentSection.classList.remove('main--visable');
-    returnSection.classList.add('main--visable');
-    addSection.classList.remove('main--visable');
-}
-
-export const showAddSection = () => {
-    rentSection.classList.remove('main--visable');
-    returnSection.classList.remove('main--visable');
-    addSection.classList.add('main--visable');
+    section.classList.add('main__section--visable');
 }

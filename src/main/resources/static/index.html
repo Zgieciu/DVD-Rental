@@ -14,16 +14,49 @@
         <nav class="rental__nav nav">
             <button class="nav__btn btn__rent btn">Wypożycz DVD</button>
             <button class="nav__btn btn__return btn">Oddaj DVD</button>
+            <button class="nav__btn btn__customer btn">Dodaj klienta</button>
             <button class="nav__btn btn__add btn">Dodaj do zbioru</button>
         </nav>
         <main class="rental__main main">
-            <section class="main__rent"></section>
-            <section class="main__return"></section>
-            <section class="main__add">
-                <form class="form">
-                    <label for="title">Tutuł: </label>
+            <section class="main__rent main__section section_rent">
+                
+            </section>
+
+            <section class="main__return main__section section_return">
+                
+            </section>
+
+            <section class="main__customer main__section section_customer">
+                <form class="form section_customer__form">
+                    <label for="name" class="form__label">Imię: </label>
+                    <input type="text" class="form__text" id="name">
+                    <label for="last-name" class="form__label">Nazwisko: </label>
+                    <input type="text" class="form__text" id="last-name">
+                    <label for="birth-date" class="form__label">Data urodzenia: </label>
+                    <input type="date" class="form__date" id="birth-date">
+                    <label for="town" class="form__label">Miejscowość: </label>
+                    <input type="text" class="form__text" id="town">
+                    <label for="phone-number" class="form__label">Numer telefonu: </label>
+                    <input type="text" class="form__text" id="phone-number">
+                    <button type="submit" class="form__submit btn">Dodaj klienta</button>
+                </form>
+            </section>
+                
+            <section class="main__add main__section section_add">
+                <form class="form section_add__form">
+                    <label for="title" class="form__label">Tutuł: </label>
                     <input type="text" class="form__text" id="title">
-                    <button type="submit">Dodaj</button>
+                    <label for="category" class="form__label">Kategoria: </label>
+                    <input type="text" class="form__text" id="category">
+                    <label for="publication-date" class="form__label">Data publikacji: </label>
+                    <input type="text" class="form__text" id="publication-date">
+                    <label for="director" class="form__label">Reżyser</label>
+                    <input type="text" class="form__text" id="director">
+                    <label for="rating" class="form__label">Ocena: </label>
+                    <input type="text" class="form__text" id="rating">
+                    <label for="description" class="form__label">Opis filmu: </label>
+                    <textarea class="form__textarea" id="description" cols="50" rows="5"></textarea>
+                    <button type="submit" class="form__submit btn">Dodaj Film</button>
                 </form>
             </section>
         </main>

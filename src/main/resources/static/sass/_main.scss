@@ -1,26 +1,13 @@
 .main {
 
-    &__rent,
-    &__return,
-    &_add {
+    &__section {
         display: none;
         font-size: 24px;
         text-align: left;
-    }
-
-    &__return {
-        display: none;
-    }
-
-    &__add {
-        display: none;
-    }
-
-    &--visable {
-        display: block;
-    }
-
-    & section {
         margin-top: 50px;
+
+        &--visable {
+            display: block;
+        }
     }
 }
