@@ -1,4 +1,10 @@
 .btn {
     text-transform: uppercase;
+    transition: .3s;
     cursor: pointer;
+
+    &:hover {
+        color: #fff;
+        background-color: #333;
+    }
 }
