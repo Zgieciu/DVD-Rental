@@ -1,7 +1,8 @@
-import { movieFetch } from "./get.js";
+import { movieGet, rentGet } from "./get.js";
 
 export const showActualSection = (sections, section) => {
-    movieFetch();
+    movieGet();
+    rentGet();
     sections.forEach(section => {
         section.classList.remove('main__section--visable');
     });

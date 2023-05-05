@@ -1,0 +1,15 @@
+@mixin flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@mixin text {
+    font-weight: bold;
+    color: $color;
+}
+
+@mixin small-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+}

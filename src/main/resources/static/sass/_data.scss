@@ -1,7 +1,6 @@
 .data_rent {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+
+    @include flex;
 
     &__record {
         width: 70%;
@@ -19,13 +18,31 @@
     }
 
     &__text {
-        font-weight: bold;
-        color: $color;
+        @include text;
     }
 
     &__btn {
-        padding: 10px 20px;
-        font-size: 15px;
+        @include small-btn;
         margin-top: 10px;
+    }
+}
+
+.data_return {
+    @include flex;
+
+    &__record {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+
+    &__text {
+        @include text;
+    }
+
+    &__btn {
+        max-height: 40px;
+        width: 10%;
+        margin-top: 20px;
+        @include small-btn;
     }
 }
