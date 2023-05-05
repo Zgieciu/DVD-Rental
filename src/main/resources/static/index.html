@@ -11,6 +11,7 @@
 <body>
     <div class="rental">
         <h1 class="rental__banner">Wypożyczalnia DVD</h1>
+        <!-- NAVIGATION -->
         <nav class="rental__nav nav">
             <button class="nav__btn btn__rent btn">Wypożycz DVD</button>
             <button class="nav__btn btn__return btn">Oddaj DVD</button>
@@ -18,14 +19,23 @@
             <button class="nav__btn btn__add btn">Dodaj do zbioru</button>
         </nav>
         <main class="rental__main main">
+            <!-- RENT MOVIE SECTION -->
             <section class="main__rent main__section section_rent">
                 <div class="section_rent__data data_rent"></div>
+                <div class="section_rent__popup popup popup--hidden">
+                    <button class="popup__btn">X</button>
+                </div>
             </section>
 
+            <!-- MOVIE RETURN SECTION -->
             <section class="main__return main__section section_return">
                 <div class="section_return__data data_return"></div>
+                <div class="section_return__popup popup popup--hidden">
+                    <button class="popup__btn">X</button>
+                </div>
             </section>
 
+            <!-- ADD CUSTOMER SECTION -->
             <section class="main__customer main__section section_customer">
                 <form class="form section_customer__form">
                     <label for="name" class="form__label">Imię: </label>
@@ -42,6 +52,7 @@
                 </form>
             </section>
                 
+            <!-- ADD MOVIE SECTION -->
             <section class="main__add main__section section_add">
                 <form class="form section_add__form">
                     <label for="title" class="form__label">Tutuł: </label>
@@ -61,6 +72,7 @@
             </section>
         </main>
     </div>
+    <div class="overlay overlay--hidden"></div>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

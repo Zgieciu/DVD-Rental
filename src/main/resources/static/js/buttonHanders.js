@@ -9,3 +9,24 @@ export const showActualSection = (sections, section) => {
 
     section.classList.add('main__section--visable');
 }
+
+export const showMoviePopup = () => {
+    const overlay = document.querySelector('.overlay');
+    const popup = document.querySelector('.section_rent__popup');
+    overlay.classList.remove('overlay--hidden');
+    popup.classList.remove('popup--hidden');
+}
+
+export const returnMoviePopup = () => {
+    const overlay = document.querySelector('.overlay');
+    const popup = document.querySelector('.section_return__popup');
+    overlay.classList.remove('overlay--hidden');
+    popup.classList.remove('popup--hidden');
+}
+
+export const exitOverlay = () => {
+    const overlay = document.querySelector('.overlay');
+    const popups = document.querySelectorAll('.popup');
+    overlay.classList.add('overlay--hidden');
+    popups.forEach(popup => popup.classList.add('popup--hidden'));
+}
