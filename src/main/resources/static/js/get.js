@@ -1,4 +1,4 @@
-import { showMoviePopup, returnMoviePopup } from './buttonHanders.js';
+import { setReturnMovieBtns, setRentMovieBtns } from './buttonHanders.js';
 
 // MOVIE GET
 export const movieGet = () => {
@@ -24,12 +24,8 @@ export const movieGet = () => {
                 conteiner.insertAdjacentHTML('beforeEnd', html);
             });
         })
+        .then(() => setRentMovieBtns())
         .catch(error => console.log(error));
-
-    setTimeout(() => {
-        const btnsRentMovie = document.querySelectorAll('.data_rent__btn');
-        btnsRentMovie.forEach(btn => btn.addEventListener('click', showMoviePopup));
-    }, 1000)
 }
 
 // RENT GET
@@ -51,10 +47,6 @@ export const rentGet = () => {
                 conteiner.insertAdjacentHTML('beforeEnd', html);
             })
         })
+        .then(() => setReturnMovieBtns())
         .catch(error => console.log(error));
-
-    setTimeout(() => {
-        const btnsReturnMovie = document.querySelectorAll('.data_return__btn');
-        btnsReturnMovie.forEach(btn => btn.addEventListener('click', returnMoviePopup));
-    }, 1000)
 }
