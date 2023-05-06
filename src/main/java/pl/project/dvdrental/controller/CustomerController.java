@@ -23,6 +23,11 @@ public class CustomerController {
         return customerService.getCustomer(id);
     }
 
+    @GetMapping("/customer/phoneNumber/{phoneNumber}")
+    public Customer getCustomerByPhoneNumber(@PathVariable String phoneNumber) {
+        return customerService.getCustomerByPhoneNumber(phoneNumber);
+    }
+
     @PostMapping("customers")
     public Customer addCustomer(@RequestBody Customer customer) {
         return customerService.addCustomer(customer);

@@ -1,23 +1,42 @@
 .popup {
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     min-width: 600px;
     padding: 20px 50px;
-    background-color: #333;
     z-index: 1000;
-    transition: .3s;
+    transition: 0s;
+    background-color: #333;
 
-    &__btn {
+
+    &__form {
+        width: 90%;
+        padding-top: 20px;
+
+        & label {
+            margin-left: 100px;
+        }
+
+        & input[type=text] {
+            margin-left: 30px;
+            width: 20%;
+        }
+    }
+
+    &__btn_x {
         position: absolute;
         top: 10px;
         right: 10px;
         border: none;
-        font-size: 20px;
+        font-size: 30px;
         cursor: pointer;
         color: #fff;
         background-color: transparent;
+
+        &:hover {
+            color: #aaa;
+        }
     }
 
     &--hidden {

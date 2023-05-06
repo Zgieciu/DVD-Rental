@@ -74,3 +74,7 @@ export const customerPost = e => {
         })
         .catch(error => console.log('ERROR'));
 }
+
+export const rentPost = e => {
+    e.preventDefault();
+}

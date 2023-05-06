@@ -17,7 +17,8 @@ INSERT INTO CUSTOMER (name, last_name, birth_date, town, phone_number)
 VALUES
     ('Krzysztof', 'Krakowiak', '2001-01-04', 'Drzewica', '859202348'),
     ('John', 'Snow', '1995-10-20', 'Warszawa', '948291859'),
-    ('Harry', 'Potter', '1999-04-13', 'Kielce', '953820695');
+    ('Harry', 'Potter', '1999-04-13', 'Kielce', '953820695'),
+    ('Gandalf', 'Szary', '1960-05-05', 'Katowice', '123456789');
 
 INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rental_costs)
 VALUES

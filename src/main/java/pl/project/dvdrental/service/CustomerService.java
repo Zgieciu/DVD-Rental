@@ -21,6 +21,10 @@ public class CustomerService {
                 .orElseThrow();
     }
 
+    public Customer getCustomerByPhoneNumber(String phoneNumber) {
+        return customerRepository.getCustomerByPhoneNumber(phoneNumber);
+    }
+
     public Customer addCustomer(Customer customer) {
         return customerRepository.save(customer);
     }

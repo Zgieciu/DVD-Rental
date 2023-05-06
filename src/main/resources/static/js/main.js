@@ -1,4 +1,4 @@
-import { moviePost, customerPost } from "./post.js";
+import { moviePost, customerPost, rentPost } from "./post.js";
 import { showActualSection, exitOverlay } from "./buttonHanders.js";
 
 // BUTTONS SELECTORS
@@ -6,7 +6,7 @@ const btnRent = document.querySelector('.btn__rent');
 const btnReturn = document.querySelector('.btn__return');
 const btnCustomer = document.querySelector('.btn__customer');
 const btnAdd = document.querySelector('.btn__add');
-const btnsExit = document.querySelectorAll('.popup__btn');
+const btnsExit = document.querySelectorAll('.popup__btn_x');
 
 // SECTIONS SELECTORS
 const rentSection = document.querySelector('.main__rent');
@@ -29,3 +29,7 @@ movieForm.addEventListener('submit', moviePost);
 // CUSTOMER POST
 const customerForm = document.querySelector('.section_customer__form');
 customerForm.addEventListener('submit', customerPost);
+
+// RENT POST 
+const rentForm = document.querySelector('.section_rent__popup form');
+rentForm.addEventListener('submit', rentPost);

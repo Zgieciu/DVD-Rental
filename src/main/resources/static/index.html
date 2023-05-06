@@ -23,7 +23,12 @@
             <section class="main__rent main__section section_rent">
                 <div class="section_rent__data data_rent"></div>
                 <div class="section_rent__popup popup popup--hidden">
-                    <button class="popup__btn">X</button>
+                    <button class="popup__btn_x">X</button>
+                    <form class="popup__form form">
+                        <label for="phone-num" class="form__label">Nr. telefonu klienta: </label>
+                        <input type="text" class="form__text" id="phone-num">
+                        <button type="submit" class="form__submit btn">Zapisz wypożyczenie</button>
+                    </form>
                 </div>
             </section>
 
@@ -31,13 +36,13 @@
             <section class="main__return main__section section_return">
                 <div class="section_return__data data_return"></div>
                 <div class="section_return__popup popup popup--hidden">
-                    <button class="popup__btn">X</button>
+                    <button class="popup__btn_x">X</button>
                 </div>
             </section>
 
             <!-- ADD CUSTOMER SECTION -->
             <section class="main__customer main__section section_customer">
-                <form class="form section_customer__form">
+                <form class="section_customer__form form ">
                     <label for="name" class="form__label">Imię: </label>
                     <input type="text" class="form__text" id="name">
                     <label for="last-name" class="form__label">Nazwisko: </label>
