@@ -1,5 +1,5 @@
 // MOVIE POST
-export const moviePost = e => {
+export const postMovie = e => {
     e.preventDefault();
 
     const title = document.getElementById('title');
@@ -28,18 +28,16 @@ export const moviePost = e => {
     }
 
     fetch('http://127.0.0.1:8080/movies', options)
-        .then(res => {
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => console.log(data))
         .then(() => {
             title.value = category.value = publicationDate.value = director.value = rating.value = description.value = '';
         })
-        .catch(error => console.log('ERROR'));
+        .catch(error => console.log(error));
 }
 
 // CUSTOMER POST
-export const customerPost = e => {
+export const postCustomer = e => {
     e.preventDefault();
 
     const name = document.getElementById('name');
@@ -65,16 +63,42 @@ export const customerPost = e => {
     }
 
     fetch('http://127.0.0.1:8080/customers', options)
-        .then(res => {
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => console.log(data))
         .then(() => {
             name.value = lastName.value = birthDate.value = town.value = phoneNumber.value = '';
         })
-        .catch(error => console.log('ERROR'));
+        .catch(error => console.log(error));
 }
 
-export const rentPost = e => {
-    e.preventDefault();
+// RENT POST
+export const postRent = (customerId, movieId, display) => {
+    const data = {
+        customerId: {
+            id: customerId,
+        },
+        movieId: {
+            id: movieId,
+        },
+        rentDate: '2023-05-08',
+        rentalCosts: 20.0,
+    }
+
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }
+
+    fetch(`http://127.0.0.1:8080/rents`, options)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .then(() => {
+            display.textContent = 'Udało się poprawnie dodać nowe wypożyczenie do bazy danych.';
+            display.classList.remove('form__display--red');
+            display.classList.add('form__display--green');
+        })
+        .catch(error => console.log(error));
 }

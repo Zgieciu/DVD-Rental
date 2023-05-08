@@ -1,5 +1,6 @@
-import { moviePost, customerPost, rentPost } from "./post.js";
+import { postMovie, postCustomer } from "./post.js";
 import { showActualSection, exitOverlay } from "./buttonHanders.js";
+import { getRentByPhoneNumber } from "./get.js";
 
 // BUTTONS SELECTORS
 const btnRent = document.querySelector('.btn__rent');
@@ -24,12 +25,12 @@ btnsExit.forEach(btn => btn.addEventListener('click', exitOverlay));
 
 // MOVIE POST
 const movieForm = document.querySelector('.section_add__form');
-movieForm.addEventListener('submit', moviePost);
+movieForm.addEventListener('submit', postMovie);
 
 // CUSTOMER POST
 const customerForm = document.querySelector('.section_customer__form');
-customerForm.addEventListener('submit', customerPost);
+customerForm.addEventListener('submit', postCustomer);
 
 // RENT POST 
 const rentForm = document.querySelector('.section_rent__popup form');
-rentForm.addEventListener('submit', rentPost);
+rentForm.addEventListener('submit', getRentByPhoneNumber);

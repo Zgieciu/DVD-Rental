@@ -1,7 +1,8 @@
-import { setReturnMovieBtns, setRentMovieBtns } from './buttonHanders.js';
+import { setReturnMovieBtns, setRentMovieBtns, movieId } from './buttonHanders.js';
+import { postRent } from './post.js';
 
 // MOVIE GET
-export const movieGet = () => {
+export const getMovie = () => {
     const conteiner = document.querySelector('.section_rent__data');
     conteiner.innerHTML = '';
 
@@ -16,7 +17,7 @@ export const movieGet = () => {
                     <span class="data_rent__text">Rok wydania:</span> ${element.publicationDate} <br>  
                     <span class="data_rent__text">Ocena:</span> ${element.rating} <br>
                     <span class="data_rent__text">Opis:</span> ${element.description} <br>
-                    ${element.availability ? '<button class="data_rent__btn btn">Wypożycz</button>' : ''}
+                    ${element.availability ? `<button class="data_rent__btn btn" id="${element.id}">Wypożycz</button>` : ''}
                 </div >
                 <div class="data_rent__img">
                     <img src="../images/${element.id}.jpg"
@@ -29,7 +30,7 @@ export const movieGet = () => {
 }
 
 // RENT GET
-export const rentGet = () => {
+export const getRent = () => {
     const conteiner = document.querySelector('.section_return__data');
     conteiner.innerHTML = '';
 
@@ -38,8 +39,8 @@ export const rentGet = () => {
         .then(data => {
             data.forEach(element => {
                 const html = `<div class="data_return__record">
-                    <span class="data_return__text">Użytkownik:</span> ${element.userId.name} ${element.userId.lastName} <br>
-                    <span class="data_return__text">Nr. telefonu:</span> ${element.userId.phoneNumber} <br>
+                    <span class="data_return__text">Użytkownik:</span> ${element.customerId.name} ${element.customerId.lastName} <br>
+                    <span class="data_return__text">Nr. telefonu:</span> ${element.customerId.phoneNumber} <br>
                     <span class="data_return__text">Wypożyczony film:</span> ${element.movieId.title} <br>
                     <span class="data_return__text">Data wypożyczenia: </span> ${element.rentDate} 
                 </div>
@@ -49,4 +50,37 @@ export const rentGet = () => {
         })
         .then(() => setReturnMovieBtns())
         .catch(error => console.log(error));
+}
+
+// RENT GET BY PHONE NUMBER 
+export const getRentByPhoneNumber = e => {
+    e.preventDefault();
+    const display = document.querySelector('.section_rent__popup .form__display');
+    const phoneNumber = document.getElementById('phone-num').value;
+    let customerId;
+    let check = true;
+
+    fetch(`http://127.0.0.1:8080/customer/phoneNumber/${phoneNumber}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === 404) {
+                display.textContent = 'Podany numer telefonu nie znajduje się w bazie danych!';
+                display.classList.add('form__display--red');
+                check = false;
+            }
+            if (check) customerId = data.id;
+        })
+        .then(() => {
+            // ADDING NEW RENT
+            if (check) {
+                postRent(customerId, movieId, display);
+            }
+        })
+        .catch(error => {
+            display.textContent = 'Podany numer telefonu nie znajduje się w bazie danych!';
+            display.classList.remove('form__display--green');
+            display.classList.add('form__display--red');
+            console.log(error);
+        });
 }

@@ -28,4 +28,18 @@
         @include small-btn;
         margin: 20px auto;
     }
+
+    &__display {
+        text-align: center;
+        font-weight: bold;
+        width: 100%;
+
+        &--green {
+            color: #0f6e17;
+        }
+
+        &--red {
+            color: #ca1616;
+        }
+    }
 }

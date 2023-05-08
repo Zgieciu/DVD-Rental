@@ -1,7 +1,5 @@
 package pl.project.dvdrental.model;
-
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -11,10 +9,10 @@ public class Rent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "customer_id", updatable = false, insertable = false)
+    @JoinColumn(name = "customer_id")
     private Customer customerId;
     @ManyToOne
-    @JoinColumn(name = "movie_id",  updatable = false, insertable = false)
+    @JoinColumn(name = "movie_id")
     private Movie movieId;
     private LocalDate rentDate;
     private LocalDate returnDate;
@@ -29,12 +27,12 @@ public class Rent {
         this.id = id;
     }
 
-    public Customer getUserId() {
+    public Customer getCustomerId() {
         return customerId;
     }
 
-    public void setUserId(Customer userId) {
-        this.customerId = userId;
+    public void setCustomerId(Customer customerId) {
+        this.customerId = customerId;
     }
 
     public Movie getMovieId() {

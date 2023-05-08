@@ -1,9 +1,11 @@
-import { movieGet, rentGet } from "./get.js";
+import { getMovie, getRent } from "./get.js";
+
+export let movieId;
 
 // FUNCTION THAT SHOW ACTUAL SECTION AND GET DATA
 export const showActualSection = (sections, section) => {
-    movieGet();
-    rentGet();
+    getMovie();
+    getRent();
     sections.forEach(section => {
         section.classList.remove('main__section--visable');
     });
@@ -12,31 +14,28 @@ export const showActualSection = (sections, section) => {
 }
 
 // POPUP FUNCTIONS
-export const showMoviePopup = () => {
-    const overlay = document.querySelector('.overlay');
-    const popup = document.querySelector('.section_rent__popup');
-    overlay.classList.remove('overlay--hidden');
-    popup.classList.remove('popup--hidden');
+export const rentMoviePopup = e => {
+    document.querySelector('.overlay').classList.remove('overlay--hidden');
+    document.querySelector('.section_rent__popup').classList.remove('popup--hidden');
+    movieId = e.target.id;
 }
 
 export const returnMoviePopup = () => {
-    const overlay = document.querySelector('.overlay');
-    const popup = document.querySelector('.section_return__popup');
-    overlay.classList.remove('overlay--hidden');
-    popup.classList.remove('popup--hidden');
+    document.querySelector('.overlay').classList.remove('overlay--hidden');
+    document.querySelector('.section_return__popup').classList.remove('popup--hidden');
 }
 
 export const exitOverlay = () => {
-    const overlay = document.querySelector('.overlay');
-    const popups = document.querySelectorAll('.popup');
-    overlay.classList.add('overlay--hidden');
-    popups.forEach(popup => popup.classList.add('popup--hidden'));
+    document.querySelector('.overlay').classList.add('overlay--hidden');
+    document.querySelector('.popup__form #phone-num').value = '';
+    document.querySelector('.section_rent__popup .form__display').textContent = '';
+    document.querySelectorAll('.popup').forEach(popup => popup.classList.add('popup--hidden'));
 }
 
 // SET EVENTLISTENER FUNCTIONS
 export const setRentMovieBtns = () => {
     const btnsRentMovie = document.querySelectorAll('.data_rent__btn');
-    btnsRentMovie.forEach(btn => btn.addEventListener('click', showMoviePopup));
+    btnsRentMovie.forEach(btn => btn.addEventListener('click', rentMoviePopup));
 }
 
 export const setReturnMovieBtns = () => {
