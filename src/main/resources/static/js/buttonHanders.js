@@ -43,3 +43,8 @@ export const setReturnMovieBtns = () => {
     const btnsReturnMovie = document.querySelectorAll('.data_return__btn');
     btnsReturnMovie.forEach(btn => btn.addEventListener('click', returnMoviePopup));
 }
+
+// ARROW SCROLL 
+export const arrowScroll = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
