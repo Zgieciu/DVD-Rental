@@ -1,6 +1,6 @@
 import { getMovie, getRent } from "./get.js";
 
-export let movieId;
+export let movieIdAndCost;
 
 // FUNCTION THAT SHOW ACTUAL SECTION AND GET DATA
 export const showActualSection = (sections, section) => {
@@ -17,7 +17,8 @@ export const showActualSection = (sections, section) => {
 export const rentMoviePopup = e => {
     document.querySelector('.overlay').classList.remove('overlay--hidden');
     document.querySelector('.section_rent__popup').classList.remove('popup--hidden');
-    movieId = e.target.id;
+    movieIdAndCost = e.target.id;
+    movieIdAndCost = movieIdAndCost.split('-');
 }
 
 export const returnMoviePopup = () => {

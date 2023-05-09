@@ -5,6 +5,7 @@ CREATE TABLE MOVIE (
     publication_date INT NOT NULL,
     director VARCHAR(30) NOT NULL,
     rating FLOAT,
+    rental_costs FLOAT NOT NULL,
     description VARCHAR(500),
     availability BOOLEAN NOT NULL DEFAULT TRUE
 );

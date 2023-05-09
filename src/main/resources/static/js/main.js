@@ -2,6 +2,15 @@ import { postMovie, postCustomer } from "./post.js";
 import { showActualSection, exitOverlay } from "./buttonHanders.js";
 import { getRentByPhoneNumber } from "./get.js";
 
+// CURRENT DATE
+const now = new Date();
+const options = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+};
+export const currentDate = new Intl.DateTimeFormat('en-US', options).format(now).split('/').reverse().join('-');
+
 // BUTTONS SELECTORS
 const btnRent = document.querySelector('.btn__rent');
 const btnReturn = document.querySelector('.btn__return');

@@ -12,6 +12,8 @@ public class Movie {
     private int publicationDate;
     private String director;
     private Float rating;
+    private Float rentalCosts;
+
     private String description;
     private boolean availability;
 
@@ -63,6 +65,14 @@ public class Movie {
         this.rating = rating;
     }
 
+    public Float getRentalCosts() {
+        return rentalCosts;
+    }
+
+    public void setRentalCosts(Float rentalCosts) {
+        this.rentalCosts = rentalCosts;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -78,4 +88,5 @@ public class Movie {
     public void setAvailability(boolean availability) {
         this.availability = availability;
     }
+
 }

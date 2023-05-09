@@ -1,3 +1,5 @@
+import { currentDate } from "./main.js";
+
 // MOVIE POST
 export const postMovie = e => {
     e.preventDefault();
@@ -72,17 +74,19 @@ export const postCustomer = e => {
 }
 
 // RENT POST
-export const postRent = (customerId, movieId, display) => {
+export const postRent = (customerId, movieIdAndCost, display) => {
     const data = {
         customerId: {
             id: customerId,
         },
         movieId: {
-            id: movieId,
+            id: movieIdAndCost[0],
         },
-        rentDate: '2023-05-08',
-        rentalCosts: 20.0,
+        rentDate: currentDate,
+        rentalCosts: movieIdAndCost[1],
     }
+
+    console.log(currentDate);
 
     const options = {
         method: 'POST',
