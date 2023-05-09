@@ -16,9 +16,9 @@ export const getMovie = () => {
                     <span class="data_rent__text">Reżyser:</span> ${element.director} <br>
                     <span class="data_rent__text">Rok wydania:</span> ${element.publicationDate} <br>  
                     <span class="data_rent__text">Ocena:</span> ${element.rating} <br>
-                    <span class="data_rent__text">Cena wypożyczenia:</span> ${element.rentalCosts.toFixed(2)} zł <br>
+                    <span class="data_rent__text">Cena wypożyczenia:</span> ${element.rentalCost.toFixed(2)} zł <br>
                     <span class="data_rent__text">Opis:</span> ${element.description} <br>
-                    ${element.availability ? `<button class="data_rent__btn btn" id="${element.id}-${element.rentalCosts.toFixed(2)}">Wypożycz</button>` : ''}
+                    ${element.availability ? `<button class="data_rent__btn btn" id="${element.id}-${element.rentalCost.toFixed(2)}">Wypożycz</button>` : ''}
                 </div >
                 <div class="data_rent__img">
                     <img src="../images/${element.id}.jpg"

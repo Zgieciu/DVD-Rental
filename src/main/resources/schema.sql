@@ -5,7 +5,7 @@ CREATE TABLE MOVIE (
     publication_date INT NOT NULL,
     director VARCHAR(30) NOT NULL,
     rating FLOAT,
-    rental_costs FLOAT NOT NULL,
+    rental_cost FLOAT NOT NULL,
     description VARCHAR(500),
     availability BOOLEAN NOT NULL DEFAULT TRUE
 );
@@ -25,9 +25,9 @@ CREATE TABLE RENT (
     movie_id INT NOT NULL,
     rent_date DATE NOT NULL,
     return_date DATE DEFAULT NULL,
-    rental_costs FLOAT NOT NULL,
+    rental_cost FLOAT NOT NULL,
     delay INT DEFAULT 0,
-    additional_costs FLOAT DEFAULT 0
+    additional_cost FLOAT DEFAULT 0
 );
 
 ALTER TABLE RENT

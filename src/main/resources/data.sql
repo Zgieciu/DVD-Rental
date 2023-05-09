@@ -1,4 +1,4 @@
-INSERT INTO MOVIE (title, category, publication_date, director, rating, rental_costs, description)
+INSERT INTO MOVIE (title, category, publication_date, director, rating, rental_cost, description)
 VALUES
     ('The Lord of the Rings: The Fellowship of the Ring', 'Fantasy', 2002, 'Peter Jackson', 8.0, 22.00,
      'Podróż hobbita z Shire i jego ośmiu towarzyszy, której celem jest zniszczenie potężnego pierścienia pożądanego przez Czarnego Władcę - Saurona.'),
@@ -28,11 +28,11 @@ VALUES
     ('Harry', 'Potter', '1999-04-13', 'Kielce', '953820695'),
     ('Gandalf', 'Szary', '1960-05-05', 'Katowice', '123456789');
 
-INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rental_costs)
+INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rental_cost)
 VALUES
     (1, 2, '2023-03-20', '2023-03-28', 22.00);
 
-INSERT INTO RENT (customer_id, movie_id, rent_date, rental_costs)
+INSERT INTO RENT (customer_id, movie_id, rent_date, rental_cost)
 VALUES
     (2, 4, '2023-04-19', 19.50),
     (3, 1, '2023-04-10', 22.00);

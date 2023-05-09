@@ -9,6 +9,7 @@ export const postMovie = e => {
     const publicationDate = document.getElementById('publication-date');
     const director = document.getElementById('director');
     const rating = document.getElementById('rating');
+    const rentalCost = document.getElementById('rental-cost');
     const description = document.getElementById('description');
 
     const data = {
@@ -17,6 +18,7 @@ export const postMovie = e => {
         publicationDate: parseInt(publicationDate.value),
         director: director.value,
         rating: parseFloat(rating.value),
+        rentalCost: parseFloat(rentalCost.value),
         description: description.value,
         availability: true,
     }
@@ -33,7 +35,7 @@ export const postMovie = e => {
         .then(res => res.json())
         .then(data => console.log(data))
         .then(() => {
-            title.value = category.value = publicationDate.value = director.value = rating.value = description.value = '';
+            title.value = category.value = publicationDate.value = director.value = rating.value = rentalCost.value = description.value = '';
         })
         .catch(error => console.log(error));
 }
@@ -83,7 +85,7 @@ export const postRent = (customerId, movieIdAndCost, display) => {
             id: movieIdAndCost[0],
         },
         rentDate: currentDate,
-        rentalCosts: movieIdAndCost[1],
+        rentalCost: movieIdAndCost[1],
     }
 
     console.log(currentDate);

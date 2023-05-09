@@ -16,9 +16,9 @@ public class Rent {
     private Movie movieId;
     private LocalDate rentDate;
     private LocalDate returnDate;
-    private Float rentalCosts;
+    private Float rentalCost;
     private int delay;
-    private Float additionalCosts;
+    private Float additionalCost;
     public Long getId() {
         return id;
     }
@@ -59,12 +59,12 @@ public class Rent {
         this.returnDate = returnDate;
     }
 
-    public Float getRentalCosts() {
-        return rentalCosts;
+    public Float getRentalCost() {
+        return rentalCost;
     }
 
-    public void setRentalCosts(Float rentalCosts) {
-        this.rentalCosts = rentalCosts;
+    public void setRentalCost(Float rentalCost) {
+        this.rentalCost = rentalCost;
     }
 
     public int getDelay() {
@@ -75,11 +75,11 @@ public class Rent {
         this.delay = delay;
     }
 
-    public Float getAdditionalCosts() {
-        return additionalCosts;
+    public Float getAdditionalCost() {
+        return additionalCost;
     }
 
-    public void setAdditionalCosts(Float additionalCosts) {
-        this.additionalCosts = additionalCosts;
+    public void setAdditionalCost(Float additionalCost) {
+        this.additionalCost = additionalCost;
     }
 }
