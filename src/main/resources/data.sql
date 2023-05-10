@@ -28,9 +28,13 @@ VALUES
     ('Harry', 'Potter', '1999-04-13', 'Kielce', '953820695'),
     ('Gandalf', 'Szary', '1960-05-05', 'Katowice', '123456789');
 
-INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rental_cost)
+INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rental_cost, payed)
 VALUES
-    (1, 2, '2023-03-20', '2023-03-28', 22.00);
+    (1, 2, '2023-03-20', '2023-03-25', 22.00, TRUE);
+
+INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, delay, additional_cost, rental_cost)
+VALUES
+    (4, 3, '2023-04-20', '2023-04-28', 1, 1.25, 26.50);
 
 INSERT INTO RENT (customer_id, movie_id, rent_date, rental_cost)
 VALUES

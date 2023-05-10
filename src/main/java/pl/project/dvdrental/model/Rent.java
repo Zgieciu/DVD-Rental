@@ -19,6 +19,8 @@ public class Rent {
     private Float rentalCost;
     private int delay;
     private Float additionalCost;
+
+    private boolean payed;
     public Long getId() {
         return id;
     }
@@ -82,4 +84,13 @@ public class Rent {
     public void setAdditionalCost(Float additionalCost) {
         this.additionalCost = additionalCost;
     }
+
+    public boolean isPayed() {
+        return payed;
+    }
+
+    public void setPayed(boolean payed) {
+        this.payed = payed;
+    }
+
 }

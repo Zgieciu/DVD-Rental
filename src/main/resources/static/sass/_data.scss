@@ -41,8 +41,14 @@
 
     &__btn {
         max-height: 40px;
-        width: 10%;
+        width: 15%;
         margin-top: 20px;
         @include small-btn;
+    }
+
+    &--not_payed {
+        margin-top: 50px;
+        padding-top: 80px;
+        border-top: 2px dashed #fff;
     }
 }

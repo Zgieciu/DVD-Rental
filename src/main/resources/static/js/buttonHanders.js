@@ -1,4 +1,5 @@
-import { getMovie, getRent } from "./get.js";
+import { getMovie, getRent, getRentByNotPayed } from "./get.js";
+import { putRentSetPayed } from "./put.js";
 
 export let movieIdAndCost;
 export let rentId;
@@ -7,6 +8,7 @@ export let rentId;
 export const showActualSection = (sections, section) => {
     getMovie();
     getRent();
+    getRentByNotPayed();
     sections.forEach(section => {
         section.classList.remove('main__section--visable');
     });
@@ -42,8 +44,13 @@ export const setRentMovieBtns = () => {
 }
 
 export const setReturnMovieBtns = () => {
-    const btnsReturnMovie = document.querySelectorAll('.data_return__btn');
+    const btnsReturnMovie = document.querySelectorAll('.data_return--return .data_return__btn');
     btnsReturnMovie.forEach(btn => btn.addEventListener('click', returnMoviePopup));
+}
+
+export const setPayedBtns = () => {
+    const btnsPayDelay = document.querySelectorAll('.data_return--not_payed .data_return__btn');
+    btnsPayDelay.forEach(btn => btn.addEventListener('click', putRentSetPayed));
 }
 
 // ARROW SCROLL 

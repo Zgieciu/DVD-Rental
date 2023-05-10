@@ -28,6 +28,11 @@ public class RentController {
         return rentServices.getRentsNotReturned();
     }
 
+    @GetMapping("/rents/notPayed")
+    public List<Rent> getRentsNotPayed() {
+        return rentServices.getRentsNotPayed();
+    }
+
     @PostMapping("/rents")
     public Rent addRent(@RequestBody Rent rent) {
         return rentServices.addRent(rent);

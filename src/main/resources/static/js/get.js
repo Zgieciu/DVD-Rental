@@ -1,4 +1,4 @@
-import { setReturnMovieBtns, setRentMovieBtns, movieIdAndCost } from './buttonHanders.js';
+import { setReturnMovieBtns, setRentMovieBtns, setPayedBtns, movieIdAndCost } from './buttonHanders.js';
 import { postRent } from './post.js';
 
 // MOVIE GET
@@ -32,7 +32,7 @@ export const getMovie = () => {
 
 // RENT GET
 export const getRent = () => {
-    const conteiner = document.querySelector('.section_return__data');
+    const conteiner = document.querySelector('.data_return--return');
     conteiner.innerHTML = '';
 
     fetch('http://127.0.0.1:8080/rents/notReturned')
@@ -50,6 +50,29 @@ export const getRent = () => {
             })
         })
         .then(() => setReturnMovieBtns())
+        .catch(error => console.log(error));
+}
+
+// RENT GET BY NOT PAYED
+export const getRentByNotPayed = () => {
+    const conteiner = document.querySelector('.data_return--not_payed');
+    conteiner.innerHTML = '';
+
+    fetch('http://127.0.0.1:8080/rents/notPayed')
+        .then(res => res.json())
+        .then(data => {
+            data.forEach(element => {
+                const html = `<div class="data_return__record">
+                    <span class="data_return__text">Użytkownik:</span> ${element.customerId.name} ${element.customerId.lastName} <br>
+                    <span class="data_return__text">Film: </span> ${element.movieId.title} <br>
+                    <span class="data_return__text">Liczba dni: </span> ${element.delay} <br>
+                    <span class="data_return__text">Do zapłaty:</span> ${element.additionalCost.toFixed(2)} zł <br>
+                </div>
+                <button class="data_return__btn btn" id="${element.id}">Opłacono</button>`;
+                conteiner.insertAdjacentHTML('beforeEnd', html);
+            })
+        })
+        .then(() => setPayedBtns())
         .catch(error => console.log(error));
 }
 

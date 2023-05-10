@@ -13,4 +13,6 @@ public interface RentRepository extends JpaRepository <Rent, Long> {
     @Query("SELECT rent FROM Rent rent WHERE rent.returnDate = NULL")
     List<Rent> getRentsNotReturned();
 
+    @Query("SELECT rent FROM Rent rent WHERE rent.payed = FALSE AND rent.returnDate IS NOT NULL")
+    List<Rent> getRentsNotPayed();
 }

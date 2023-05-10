@@ -27,7 +27,8 @@ CREATE TABLE RENT (
     return_date DATE DEFAULT NULL,
     rental_cost FLOAT NOT NULL,
     delay INT DEFAULT 0,
-    additional_cost FLOAT DEFAULT 0
+    additional_cost FLOAT DEFAULT 0,
+    payed BOOLEAN DEFAULT FALSE
 );
 
 ALTER TABLE RENT

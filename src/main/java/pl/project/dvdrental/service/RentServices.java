@@ -28,6 +28,10 @@ public class RentServices {
         return rentRepository.getRentsNotReturned();
     }
 
+    public List<Rent> getRentsNotPayed() {
+        return  rentRepository.getRentsNotPayed();
+    }
+
     public Rent addRent(Rent rent) {
         return rentRepository.save(rent);
     }
@@ -35,6 +39,11 @@ public class RentServices {
     @Transactional
     public Rent editRent(Rent rent) {
         Rent rentEdited = rentRepository.findById(rent.getId()).orElseThrow();
+
+        if (rent.isPayed() == true) {
+            rentEdited.setPayed(true);
+            return rentEdited;
+        }
 
         long delay = ChronoUnit.DAYS.between(rentEdited.getRentDate(), rent.getReturnDate());
         float additionalCost;
