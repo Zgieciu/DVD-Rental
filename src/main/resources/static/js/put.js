@@ -35,7 +35,6 @@ export const putRent = (e, rentId) => {
 
 // PUT RENT - CHANGE PAYED TO TRUE
 export const putRentSetPayed = e => {
-    console.log(e.target.id);
     const data = {
         id: e.target.id,
         payed: true,

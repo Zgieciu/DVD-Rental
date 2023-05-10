@@ -47,8 +47,11 @@
     }
 
     &--not_payed {
-        margin-top: 50px;
-        padding-top: 80px;
-        border-top: 2px dashed #fff;
+
+        &--border {
+            margin-top: 50px;
+            padding-top: 80px;
+            border-top: 2px dashed #fff;
+        }
     }
 }

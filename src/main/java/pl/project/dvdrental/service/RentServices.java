@@ -40,24 +40,22 @@ public class RentServices {
     public Rent editRent(Rent rent) {
         Rent rentEdited = rentRepository.findById(rent.getId()).orElseThrow();
 
-        if (rent.isPayed() == true) {
+        if (rent.isPayed()) {
             rentEdited.setPayed(true);
             return rentEdited;
         }
 
-        long delay = ChronoUnit.DAYS.between(rentEdited.getRentDate(), rent.getReturnDate());
+        long rentDays = ChronoUnit.DAYS.between(rentEdited.getRentDate(), rent.getReturnDate());
         float additionalCost;
 
-        if (delay > 7 ) {
-            delay = delay - 7;
-            additionalCost = (float) (((float) delay) * 1.25);
+        if (rentDays > 7 ) {
+            additionalCost = (float) (((float) rentDays - 7) * 1.25);
         } else {
-            delay = 0;
             additionalCost = 0;
         }
 
         rentEdited.setReturnDate(rent.getReturnDate());
-        rentEdited.setDelay((int)delay);
+        rentEdited.setRentDays((int)rentDays);
         rentEdited.setAdditionalCost(additionalCost);
 
         return rentEdited;

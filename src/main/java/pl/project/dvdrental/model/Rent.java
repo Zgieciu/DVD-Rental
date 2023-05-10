@@ -17,7 +17,7 @@ public class Rent {
     private LocalDate rentDate;
     private LocalDate returnDate;
     private Float rentalCost;
-    private int delay;
+    private int rentDays;
     private Float additionalCost;
 
     private boolean payed;
@@ -69,12 +69,12 @@ public class Rent {
         this.rentalCost = rentalCost;
     }
 
-    public int getDelay() {
-        return delay;
+    public int getRentDays() {
+        return rentDays;
     }
 
-    public void setDelay(int delay) {
-        this.delay = delay;
+    public void setRentDays(int rentDays) {
+        this.rentDays = rentDays;
     }
 
     public Float getAdditionalCost() {

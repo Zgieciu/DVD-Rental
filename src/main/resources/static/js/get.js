@@ -61,11 +61,14 @@ export const getRentByNotPayed = () => {
     fetch('http://127.0.0.1:8080/rents/notPayed')
         .then(res => res.json())
         .then(data => {
+            if (data.length === 0) conteiner.classList.remove('data_return--not_payed--border');
+            else conteiner.classList.add('data_return--not_payed--border');
             data.forEach(element => {
                 const html = `<div class="data_return__record">
                     <span class="data_return__text">Użytkownik:</span> ${element.customerId.name} ${element.customerId.lastName} <br>
                     <span class="data_return__text">Film: </span> ${element.movieId.title} <br>
-                    <span class="data_return__text">Liczba dni: </span> ${element.delay} <br>
+                    <span class="data_return__text">Liczba dni wypożyczenia: </span> ${element.rentDays} <br>
+                    <span class="data_return__text">Liczba przekroczonych dni: </span> ${element.rentDays - 7 < 0 ? 0 : element.rentDays - 7} <br>
                     <span class="data_return__text">Do zapłaty:</span> ${element.additionalCost.toFixed(2)} zł <br>
                 </div>
                 <button class="data_return__btn btn" id="${element.id}">Opłacono</button>`;

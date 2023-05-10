@@ -26,7 +26,7 @@ CREATE TABLE RENT (
     rent_date DATE NOT NULL,
     return_date DATE DEFAULT NULL,
     rental_cost FLOAT NOT NULL,
-    delay INT DEFAULT 0,
+    rent_days INT DEFAULT 0,
     additional_cost FLOAT DEFAULT 0,
     payed BOOLEAN DEFAULT FALSE
 );

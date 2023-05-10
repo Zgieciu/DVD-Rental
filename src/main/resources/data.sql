@@ -32,9 +32,9 @@ INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rental_cost, pa
 VALUES
     (1, 2, '2023-03-20', '2023-03-25', 22.00, TRUE);
 
-INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, delay, additional_cost, rental_cost)
+INSERT INTO RENT (customer_id, movie_id, rent_date, return_date, rent_days, additional_cost, rental_cost)
 VALUES
-    (4, 3, '2023-04-20', '2023-04-28', 1, 1.25, 26.50);
+    (4, 3, '2023-04-20', '2023-04-28', 8, 1.25, 26.50);
 
 INSERT INTO RENT (customer_id, movie_id, rent_date, rental_cost)
 VALUES
