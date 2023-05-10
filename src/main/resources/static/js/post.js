@@ -103,8 +103,8 @@ export const postRent = (customerId, movieIdAndCost, display) => {
         .then(data => console.log(data))
         .then(() => {
             display.textContent = 'Udało się poprawnie dodać nowe wypożyczenie do bazy danych.';
-            display.classList.remove('form__display--red');
-            display.classList.add('form__display--green');
+            display.classList.remove('popup__display--red');
+            display.classList.add('popup__display--green');
         })
         .catch(error => console.log(error));
 }

@@ -45,7 +45,7 @@ export const getRent = () => {
                     <span class="data_return__text">Wypożyczony film:</span> ${element.movieId.title} <br>
                     <span class="data_return__text">Data wypożyczenia: </span> ${element.rentDate} 
                 </div>
-                <button class="data_return__btn btn">Zwróć</button>`;
+                <button class="data_return__btn btn" id="${element.id}">Zwróć</button>`;
                 conteiner.insertAdjacentHTML('beforeEnd', html);
             })
         })
@@ -56,7 +56,7 @@ export const getRent = () => {
 // RENT GET BY PHONE NUMBER 
 export const getRentByPhoneNumber = e => {
     e.preventDefault();
-    const display = document.querySelector('.section_rent__popup .form__display');
+    const display = document.querySelector('.section_rent__popup .popup__display');
     const phoneNumber = document.getElementById('phone-num').value;
     let customerId;
     let check = true;
@@ -67,7 +67,7 @@ export const getRentByPhoneNumber = e => {
             console.log(data);
             if (data.status === 404) {
                 display.textContent = 'Podany numer telefonu nie znajduje się w bazie danych!';
-                display.classList.add('form__display--red');
+                display.classList.add('popup__display--red');
                 check = false;
             }
             if (check) customerId = data.id;
@@ -80,8 +80,8 @@ export const getRentByPhoneNumber = e => {
         })
         .catch(error => {
             display.textContent = 'Podany numer telefonu nie znajduje się w bazie danych!';
-            display.classList.remove('form__display--green');
-            display.classList.add('form__display--red');
+            display.classList.remove('popup__display--green');
+            display.classList.add('popup__display--red');
             console.log(error);
         });
 }

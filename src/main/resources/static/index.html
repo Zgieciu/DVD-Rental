@@ -29,8 +29,8 @@
                         <label for="phone-num" class="form__label">Nr. telefonu klienta: </label>
                         <input type="text" class="form__text" id="phone-num">
                         <button type="submit" class="form__submit btn">Zapisz wypożyczenie</button>
-                        <p class="form__display"></p>
                     </form>
+                    <p class="popup__display"></p>
                 </div>
             </section>
 
@@ -39,6 +39,12 @@
                 <div class="section_return__data data_return"></div>
                 <div class="section_return__popup popup popup--hidden">
                     <button class="popup__btn_x">X</button>
+                    <form class="popup__form form">
+                        <label for="return-date">Data zwrotu: </label>
+                        <input type="date" class="form__date" id="return-date">
+                        <button type="submit" class="form__submit btn">Potwierdź zwrot</button>
+                    </form>
+                    <p class="popup__display"></p>
                 </div>
             </section>
 

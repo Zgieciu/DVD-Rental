@@ -1,6 +1,7 @@
 import { getMovie, getRent } from "./get.js";
 
 export let movieIdAndCost;
+export let rentId;
 
 // FUNCTION THAT SHOW ACTUAL SECTION AND GET DATA
 export const showActualSection = (sections, section) => {
@@ -21,15 +22,16 @@ export const rentMoviePopup = e => {
     movieIdAndCost = movieIdAndCost.split('-');
 }
 
-export const returnMoviePopup = () => {
+export const returnMoviePopup = e => {
     document.querySelector('.overlay').classList.remove('overlay--hidden');
     document.querySelector('.section_return__popup').classList.remove('popup--hidden');
+    rentId = e.target.id;
 }
 
 export const exitOverlay = () => {
     document.querySelector('.overlay').classList.add('overlay--hidden');
     document.querySelector('.popup__form #phone-num').value = '';
-    document.querySelector('.section_rent__popup .form__display').textContent = '';
+    document.querySelectorAll('.popup__display').forEach(p => p.textContent = '');
     document.querySelectorAll('.popup').forEach(popup => popup.classList.add('popup--hidden'));
 }
 

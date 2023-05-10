@@ -1,6 +1,7 @@
-import { postMovie, postCustomer } from "./post.js";
-import { showActualSection, exitOverlay, arrowScroll } from "./buttonHanders.js";
+import { showActualSection, exitOverlay, arrowScroll, rentId } from "./buttonHanders.js";
 import { getRentByPhoneNumber } from "./get.js";
+import { postMovie, postCustomer } from "./post.js";
+import { putRent } from "./put.js";
 
 // CURRENT DATE
 const now = new Date();
@@ -9,7 +10,10 @@ const options = {
     month: '2-digit',
     day: '2-digit',
 };
-export const currentDate = new Intl.DateTimeFormat('en-US', options).format(now).split('/').reverse().join('-');
+export const currentDate = new Intl.DateTimeFormat('pl-PL', options).format(now).split('.').reverse().join('-');
+const inputDate = document.getElementById('return-date');
+inputDate.value = currentDate;
+inputDate.setAttribute('max', currentDate);
 
 // BUTTONS SELECTORS
 const btnRent = document.querySelector('.btn__rent');
@@ -45,3 +49,7 @@ customerForm.addEventListener('submit', postCustomer);
 // RENT POST 
 const rentForm = document.querySelector('.section_rent__popup form');
 rentForm.addEventListener('submit', getRentByPhoneNumber);
+
+// RENT PUT
+const returnForm = document.querySelector('.section_return__popup form');
+returnForm.addEventListener('submit', (e) => putRent(e, rentId));

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import pl.project.dvdrental.model.Rent;
 import pl.project.dvdrental.repository.RentRepository;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -34,7 +35,22 @@ public class RentServices {
     @Transactional
     public Rent editRent(Rent rent) {
         Rent rentEdited = rentRepository.findById(rent.getId()).orElseThrow();
+
+        long delay = ChronoUnit.DAYS.between(rentEdited.getRentDate(), rent.getReturnDate());
+        float additionalCost;
+
+        if (delay > 7 ) {
+            delay = delay - 7;
+            additionalCost = (float) (((float) delay) * 1.25);
+        } else {
+            delay = 0;
+            additionalCost = 0;
+        }
+
         rentEdited.setReturnDate(rent.getReturnDate());
+        rentEdited.setDelay((int)delay);
+        rentEdited.setAdditionalCost(additionalCost);
+
         return rentEdited;
     }
 }
