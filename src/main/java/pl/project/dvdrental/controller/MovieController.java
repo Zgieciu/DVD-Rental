@@ -36,4 +36,9 @@ public class MovieController {
     public Movie addMovie(@RequestBody Movie movie) {
         return movieService.addMovie(movie);
     }
+
+    @PutMapping("/movies")
+    public Movie editMovie(@RequestBody Movie movie) {
+        return movieService.editMovie(movie);
+    }
 }

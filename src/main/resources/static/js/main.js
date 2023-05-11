@@ -1,7 +1,7 @@
 import { showActualSection, exitOverlay, arrowScroll, rentId } from "./buttonHanders.js";
 import { getRentByPhoneNumber } from "./get.js";
 import { postMovie, postCustomer } from "./post.js";
-import { putRent } from "./put.js";
+import { putRentSetReturnDate } from "./put.js";
 
 // CURRENT DATE
 const now = new Date();
@@ -52,4 +52,4 @@ rentForm.addEventListener('submit', getRentByPhoneNumber);
 
 // RENT PUT
 const returnForm = document.querySelector('.section_return__popup form');
-returnForm.addEventListener('submit', (e) => putRent(e, rentId));
+returnForm.addEventListener('submit', (e) => putRentSetReturnDate(e, rentId));

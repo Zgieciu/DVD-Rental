@@ -13,6 +13,7 @@ public class Movie {
     private String director;
     private Float rating;
     private Float rentalCost;
+    private int quantity;
     private String description;
     private boolean availability;
 
@@ -70,6 +71,14 @@ public class Movie {
 
     public void setRentalCost(Float rentalCost) {
         this.rentalCost = rentalCost;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getDescription() {

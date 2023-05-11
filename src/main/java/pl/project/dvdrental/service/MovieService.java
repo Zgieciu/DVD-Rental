@@ -1,5 +1,6 @@
 package pl.project.dvdrental.service;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.project.dvdrental.model.Movie;
@@ -31,5 +32,12 @@ public class MovieService {
 
     public Movie addMovie(Movie movie) {
         return movieRepository.save(movie);
+    }
+
+    @Transactional
+    public Movie editMovie(Movie movie) {
+        Movie movieEdited = movieRepository.findById(movie.getId()).orElseThrow();
+        movieEdited.setQuantity(movie.getQuantity());
+        return movieEdited;
     }
 }

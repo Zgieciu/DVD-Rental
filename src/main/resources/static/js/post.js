@@ -1,4 +1,5 @@
 import { currentDate } from "./main.js";
+import { putMovieSetQuantity } from "./put.js";
 
 // MOVIE POST
 export const postMovie = e => {
@@ -10,6 +11,7 @@ export const postMovie = e => {
     const director = document.getElementById('director');
     const rating = document.getElementById('rating');
     const rentalCost = document.getElementById('rental-cost');
+    const quantity = document.getElementById('quantity');
     const description = document.getElementById('description');
 
     const data = {
@@ -19,8 +21,8 @@ export const postMovie = e => {
         director: director.value,
         rating: parseFloat(rating.value),
         rentalCost: parseFloat(rentalCost.value),
+        quantity: parseInt(quantity.value),
         description: description.value,
-        availability: true,
     }
 
     const options = {
@@ -35,7 +37,7 @@ export const postMovie = e => {
         .then(res => res.json())
         .then(data => console.log(data))
         .then(() => {
-            title.value = category.value = publicationDate.value = director.value = rating.value = rentalCost.value = description.value = '';
+            title.value = category.value = publicationDate.value = director.value = rating.value = rentalCost.value = quantity.value = description.value = '';
         })
         .catch(error => console.log(error));
 }
@@ -88,8 +90,6 @@ export const postRent = (customerId, movieIdAndCost, display) => {
         rentalCost: movieIdAndCost[1],
     }
 
-    console.log(currentDate);
-
     const options = {
         method: 'POST',
         body: JSON.stringify(data),
@@ -105,6 +105,7 @@ export const postRent = (customerId, movieIdAndCost, display) => {
             display.textContent = 'Udało się poprawnie dodać nowe wypożyczenie do bazy danych.';
             display.classList.remove('popup__display--red');
             display.classList.add('popup__display--green');
+            putMovieSetQuantity(-1, movieIdAndCost[0]);
         })
         .catch(error => console.log(error));
 }
