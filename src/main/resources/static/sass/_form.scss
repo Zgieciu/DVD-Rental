@@ -28,4 +28,10 @@
         @include small-btn;
         margin: 20px auto;
     }
+
+    &+form {
+        padding-top: 80px;
+        border-top: 2px dashed #fff;
+        margin-top: 80px;
+    }
 }

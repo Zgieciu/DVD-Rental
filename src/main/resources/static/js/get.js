@@ -1,5 +1,6 @@
 import { setReturnMovieBtns, setRentMovieBtns, setPayedBtns, movieIdAndCost } from './buttonHanders.js';
 import { postRent } from './post.js';
+import { putMovieSetQuantity } from './put.js';
 
 // MOVIE GET
 export const getMovie = () => {
@@ -28,6 +29,23 @@ export const getMovie = () => {
             });
         })
         .then(() => setRentMovieBtns())
+        .catch(error => console.log(error));
+}
+
+// MOVIE GET BY TITLE
+
+export const getMovieByTitle = e => {
+    e.preventDefault();
+    const title = document.getElementById('title-change').value;
+    const quantity = parseInt(document.getElementById('quantity-change').value);
+    console.log(title, quantity);
+
+    fetch(`http://127.0.0.1:8080/movie/title/${title}`)
+        .then(res => res.json())
+        .then(data => {
+            putMovieSetQuantity(quantity, data.id);
+            console.log(data);
+        })
         .catch(error => console.log(error));
 }
 

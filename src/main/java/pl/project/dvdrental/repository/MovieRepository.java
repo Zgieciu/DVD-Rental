@@ -16,4 +16,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long>{
     @Query("SELECT movie FROM Movie movie WHERE movie.rating >= ?1")
     List<Movie> getMoviesByRating(Float rating);
 
+    @Query("SELECT movie FROM Movie movie WHERE movie.title = ?1")
+    Movie getMovieByTitle(String title);
+
 }

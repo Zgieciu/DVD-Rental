@@ -32,6 +32,11 @@ public class MovieController {
         return movieService.getMoviesByRating(rating);
     }
 
+    @GetMapping("/movie/title/{title}")
+    public Movie getMovieByTitle(@PathVariable String title) {
+        return  movieService.getMovieByTitle(title);
+    }
+
     @PostMapping("/movies")
     public Movie addMovie(@RequestBody Movie movie) {
         return movieService.addMovie(movie);

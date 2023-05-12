@@ -27,6 +27,7 @@ export const rentMoviePopup = e => {
 export const returnMoviePopup = e => {
     document.querySelector('.overlay').classList.remove('overlay--hidden');
     document.querySelector('.section_return__popup').classList.remove('popup--hidden');
+    document.querySelector('.section_return__popup .popup__display').textContent = '';
     rentId = e.target.id;
 }
 

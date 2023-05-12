@@ -14,10 +14,10 @@
         <h1 class="rental__banner">Wypożyczalnia DVD</h1>
         <!-- NAVIGATION -->
         <nav class="rental__nav nav">
-            <button class="nav__btn btn__rent btn">Wypożycz DVD</button>
-            <button class="nav__btn btn__return btn">Oddaj DVD</button>
+            <button class="nav__btn btn__rent btn">Wypożyczenie DVD</button>
+            <button class="nav__btn btn__return btn">Zwrot DVD</button>
             <button class="nav__btn btn__customer btn">Dodaj klienta</button>
-            <button class="nav__btn btn__add btn">Dodaj do zbioru</button>
+            <button class="nav__btn btn__add btn">Zarządzanie zbiorem</button>
         </nav>
         <main class="rental__main main">
             <!-- RENT MOVIE SECTION -->
@@ -86,6 +86,13 @@
                     <label for="description" class="form__label">Opis filmu: </label>
                     <textarea class="form__textarea" id="description" cols="45" rows="5"></textarea>
                     <button type="submit" class="form__submit btn">Dodaj Film</button>
+                </form>
+                <form class="form section_add__form form--change">
+                    <label for="title-change" class="form__label">Tytuł filmu</label>
+                    <input type="text" class="form__text" id="title-change">
+                    <label for="quantity-change" class="form__label">Ilość egzemplarzy:</label>
+                    <input type="number" class="form__text" id="quantity-change">
+                    <button type="submit" class="form__submit btn">Zmień ilość egzemplarzy</button>
                 </form>
             </section>
         </main>

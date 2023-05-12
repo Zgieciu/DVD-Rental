@@ -1,5 +1,33 @@
 import { getMovie, getRent, getRentByNotPayed } from "./get.js";
 
+// PUT MOVIE - CHANGE QUANTITY
+export const putMovieSetQuantity = async (quantityAmount, movieId) => {
+    const response = await fetch(`http://127.0.0.1:8080/movie/${movieId}`);
+    const dataJSON = await response.json();
+    let quantity = dataJSON.quantity;
+
+    quantity += quantityAmount;
+
+    const data = {
+        id: movieId,
+        quantity: quantity,
+    }
+
+    const options = {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }
+
+    fetch('http://127.0.0.1:8080/movies', options)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .then(() => getMovie())
+        .catch(error => console.log(error));
+}
+
 // PUT RENT - ADD RETURN DATE
 export const putRentSetReturnDate = (e, rentId) => {
     e.preventDefault();
@@ -62,37 +90,5 @@ export const putRentSetPayed = e => {
         .then(() => {
             getRentByNotPayed();
         })
-        .catch(error => console.log(error));
-}
-
-// PUT MOVIE - CHANGE QUANTITY
-export const putMovieSetQuantity = async (condition, movieId) => {
-    const response = await fetch(`http://127.0.0.1:8080/movie/${movieId}`);
-    const dataJSON = await response.json();
-    let quantity = dataJSON.quantity;
-
-    if (condition < 0) {
-        quantity -= 1;
-    } else if (condition > 0) {
-        quantity += 1;
-    }
-
-    const data = {
-        id: movieId,
-        quantity: quantity,
-    }
-
-    const options = {
-        method: 'PUT',
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json",
-        }
-    }
-
-    fetch('http://127.0.0.1:8080/movies', options)
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .then(() => getMovie())
         .catch(error => console.log(error));
 }

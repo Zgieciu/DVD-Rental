@@ -1,5 +1,5 @@
 import { showActualSection, exitOverlay, arrowScroll, rentId } from "./buttonHanders.js";
-import { getRentByPhoneNumber } from "./get.js";
+import { getMovieByTitle, getRentByPhoneNumber } from "./get.js";
 import { postMovie, postCustomer } from "./post.js";
 import { putRentSetReturnDate } from "./put.js";
 
@@ -41,6 +41,10 @@ btnsExit.forEach(btn => btn.addEventListener('click', exitOverlay));
 // MOVIE POST
 const movieForm = document.querySelector('.section_add__form');
 movieForm.addEventListener('submit', postMovie);
+
+// MOVIE POST - CHANGE QUANTITY
+const movieChangeForm = document.querySelector('.form--change');
+movieChangeForm.addEventListener('submit', getMovieByTitle);
 
 // CUSTOMER POST
 const customerForm = document.querySelector('.section_customer__form');

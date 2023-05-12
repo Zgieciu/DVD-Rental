@@ -30,6 +30,10 @@ public class MovieService {
         return movieRepository.getMoviesByRating(rating);
     }
 
+    public Movie getMovieByTitle(String title) {
+        return movieRepository.getMovieByTitle(title);
+    }
+
     public Movie addMovie(Movie movie) {
         return movieRepository.save(movie);
     }
