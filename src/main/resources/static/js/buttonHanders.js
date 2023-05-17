@@ -6,13 +6,16 @@ export let rentId;
 
 // FUNCTION THAT SHOW ACTUAL SECTION AND GET DATA
 export const showActualSection = (sections, section) => {
+
+    document.querySelectorAll('.display').forEach(display => display.textContent = '');
+
     getMovie();
     getRent();
     getRentByNotPayed();
+
     sections.forEach(section => {
         section.classList.remove('main__section--visable');
     });
-
     section.classList.add('main__section--visable');
 }
 

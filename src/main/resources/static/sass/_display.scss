@@ -1,0 +1,20 @@
+.display {
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 20px;
+
+    &--green {
+        color: #0f6e17;
+    }
+
+    &--red {
+        color: #d13232;
+    }
+
+    &+form {
+        padding-top: 80px;
+        border-top: 2px dashed #fff;
+        margin-top: 80px;
+    }
+}

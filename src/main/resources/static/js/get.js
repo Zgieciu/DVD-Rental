@@ -1,4 +1,5 @@
 import { setReturnMovieBtns, setRentMovieBtns, setPayedBtns, movieIdAndCost } from './buttonHanders.js';
+import { displayPrint } from './display.js';
 import { postRent } from './post.js';
 import { putMovieSetQuantity } from './put.js';
 
@@ -38,7 +39,12 @@ export const getMovieByTitle = e => {
     e.preventDefault();
     const title = document.getElementById('title-change').value;
     const quantity = parseInt(document.getElementById('quantity-change').value);
-    console.log(title, quantity);
+    const display = document.querySelector('.change__display');
+
+    if (!isFinite(quantity)) {
+        displayPrint(display, -1, 'Podaj ilość dodanych filmów');
+        return;
+    }
 
     fetch(`http://127.0.0.1:8080/movie/title/${title}`)
         .then(res => res.json())
@@ -46,7 +52,10 @@ export const getMovieByTitle = e => {
             putMovieSetQuantity(quantity, data.id);
             console.log(data);
         })
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error);
+            displayPrint(display, -1, 'Niepoprawna nazwa filmu.');
+        });
 }
 
 // RENT GET
@@ -110,9 +119,8 @@ export const getRentByPhoneNumber = e => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            if (data.status === 404) {
-                display.textContent = 'Podany numer telefonu nie znajduje się w bazie danych!';
-                display.classList.add('popup__display--red');
+            if (data.status === 404 || data.status === 500) {
+                displayPrint(display, -1, 'Podany numer telefonu nie znajduje się w bazie danych.');
                 check = false;
             }
             if (check) customerId = data.id;
@@ -124,9 +132,7 @@ export const getRentByPhoneNumber = e => {
             }
         })
         .catch(error => {
-            display.textContent = 'Podany numer telefonu nie znajduje się w bazie danych!';
-            display.classList.remove('popup__display--green');
-            display.classList.add('popup__display--red');
+            displayPrint(display, -1, 'Podany numer telefonu nie znajduje się w bazie danych.');
             console.log(error);
         });
 }

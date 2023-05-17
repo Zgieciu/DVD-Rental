@@ -51,16 +51,6 @@
     }
 
     &__display {
-        text-align: center;
-        font-weight: bold;
-        width: 100%;
-
-        &--green {
-            color: #0f6e17;
-        }
-
-        &--red {
-            color: #ca1616;
-        }
+        margin-top: 0;
     }
 }
